@@ -6,10 +6,10 @@ import * as api from "./api";
 function App() {
   useEffect(() => {
     const doStuff = async () => {
-      const [user] = await api.users.all({ limit: 4, sort: 'desc' });
+      const [user] = await api.users.all({ limit: 4, sort: "desc" });
       console.log(user);
       await api.users.delete(user.id);
-    }
+    };
 
     doStuff();
   }, []);

@@ -1,14 +1,8 @@
 import { Api } from "./base";
 
 export class Users extends Api {
-  async all(options = {}) {
-    const { limit, sort = "asc" } = options;
-
-    const queryString = limit
-      ? `?${new URLSearchParams({ limit, sort }).toString()}`
-      : "";
-
-    return await this._get(`/users${queryString}`);
+  async all(params = {}) {
+    return await this._get("/users", params);
   }
 
   async single(userId) {
