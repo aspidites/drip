@@ -30,33 +30,30 @@ export class Api {
 
   async _post(endpoint, body, options = {}) {
     return await this._fetch(endpoint, {}, {
-      ...options,
       method: "POST",
       body: JSON.stringify(body),
+      ...options,
     });
   }
 
   async _patch(endpoint, body, options = {}) {
-    return await this._fetch(endpoint, {}, {
-      ...options,
+    return await this._post(endpoint, body, {
       method: "PATCH",
-      body: JSON.stringify(body),
+      ...options
     });
   }
 
   async _put(endpoint, body, options = {}) {
-    return await this._fetch(endpoint, {}, {
-      ...options,
-      method: "PUT",
-      body: JSON.stringify(body),
+    return await this._post(endpoint, body, {
+      method: "PATCH",
+      ...options
     });
   }
 
   async _delete(endpoint, options = {}) {
-    return await this._fetch(endpoint, {}, {
-      ...this.defaultOptions,
-      ...options,
+    return await this._get(endpoint, {}, {
       method: "DELETE",
-    })
+      ...options,
+    });
   }
 }

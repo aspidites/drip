@@ -10,4 +10,3 @@ export class Auth extends Api {
 }
 
 export const auth = new Auth();
-

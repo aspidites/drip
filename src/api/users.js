@@ -1,24 +1,9 @@
-import { Api } from "./base";
+import { FakeStore } from "./fakeStore";
 
-export class Users extends Api {
-  async all(params = {}) {
-    return await this._get("/users", params);
-  }
-
-  async single(userId) {
-    return await this._get(`/users/${userId}`);
-  }
-
-  async add(user) {
-    return await this._post("/users", user);
-  }
-
-  async update(userId, user) {
-    return await this._put(`/users/${userId}`, user);
-  }
-
-  async delete(userId) {
-    return await this._delete(`/users/${userId}`);
+export class Users extends FakeStore {
+  constructor() {
+    super();
+    this.baseUrl += "/users";
   }
 }
 
