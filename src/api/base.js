@@ -57,6 +57,6 @@ export class Api {
       ...this.defaultOptions,
       ...options,
       method: "DELETE",
-    }).then(response => response.json());
+    })
   }
 }
